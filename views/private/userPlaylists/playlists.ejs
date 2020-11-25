@@ -1,0 +1,36 @@
+<%- include('../../include/private/header') -%>
+
+<section class="pt-4 pb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col col-sm-12 mb-3">
+                <a href="/playlists/create" class="btn btn-success"><i class="fa fa-plus"></i> Create Playlist</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<% if(playlists.length > 0){ %>
+    <section class="pt-4 pb-4">
+        <div class="container">
+            <h3>Your Playlists</h3>
+            <div class="owl-carousel">
+                <% playlists.forEach(playlist => { %>
+                <div class="item">
+                    <div class="img-wrapper">
+                        <a href="/playlists/<%= playlist.playlistId %>/view">
+                            <img src="<%= playlist.thumbnail %>" alt="" class="rounded img-shadow-hover mt-1 mb-3">
+                        </a>
+                        <div class="img-overlay p-1">
+                            <a href="/playlists/<%= playlist.playlistId %>/update">Update</a>
+                        </div>
+                    </div>
+                    <h6><%= playlist.title %></h6>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+<% } %>
+
+<%- include('../../include/private/footer') -%>

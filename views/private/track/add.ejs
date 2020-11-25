@@ -1,0 +1,27 @@
+<%- include('../../include/private/header') -%>
+
+<section class="pt-4 pb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col col-sm-12">
+                <h1><%= page_title %></h1>
+                    <form method="POST">
+                        <%- include('../../include/messages') -%>
+                        <div class="form-group">
+                            <label for="playlist">Select Playlist</label>
+                            <select name="playlist" id="playlist" class="form-control<%= typeof playlist_validation != 'undefined' ? ' is-invalid' : null %>">
+                                <option value="">~Select Playlist~</option>
+                                <% playlists.forEach(playlist => { %>
+                                <option value="<%= playlist.playlistId %>"><%= playlist.title %></option>
+                                <% }) %>
+                            </select>
+                            <small class="invalid-feedback"><%= typeof playlist_validation != 'undefined' ? playlist_validation : null %></small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add To Playlist</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('../../include/private/footer') -%>

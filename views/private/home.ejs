@@ -1,0 +1,80 @@
+<%- include('../include/private/header') -%>
+
+<% if(artists != null){ %>
+<section class="pt-4 pb-4">
+    <div class="container">
+        <h3>Artists</h3>
+        <div class="owl-carousel">
+            <% artists.data.forEach(artist => { %>
+            <div class="item">
+                <a href="/<%= artist.id %>/artist">
+                    <img src="<%= artist.picture_medium %>" alt="" class="rounded-circle img-shadow-hover mt-1 mb-3">
+                </a>
+                <p>name</p>
+                <h6 class="text-center"><%= artist.name %></h6>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+</section>
+<% } %>
+
+<% if(playlists != null){ %>
+<section class="pt-4 pb-4">
+    <div class="container">
+        <h3>Playlists</h3>
+        <div class="owl-carousel">
+            <% playlists.data.forEach(playlist => { %>
+            <div class="item">
+                <div class="img-wrapper">
+                    <a href="/<%= playlist.id %>/playlist">
+                        <img src="<%= playlist.picture_medium %>" alt="" class="rounded img-shadow-hover mt-1 mb-3">
+                    </a>
+                    <div class="img-overlay p-1">Overlay</div>
+                </div>
+                <h6><%= playlist.title %></h6>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+</section>
+<% } %>
+
+<% if(albums != null){ %>
+<section class="pt-4 pb-4">
+    <div class="container">
+        <h3>Albums</h3>
+        <div class="owl-carousel">
+            <% albums.data.forEach(album => { %>
+            <div class="item">
+                <a href="/<%= album.id %>/album">
+                    <img src="<%= album.cover_medium %>" alt="" class="rounded img-shadow-hover mt-1 mb-3">
+                </a>
+                <h6><%= album.title %></h6>
+                <small>Artist: <%= album.artist.name %></small>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+</section>
+<% } %>
+
+<% if (musicroomPlaylists.length > 0) { %>
+<section class="pt-4 pb-4">
+    <div class="container">
+        <h3>Music room playlists</h3>
+        <div class="owl-carousel">
+            <% musicroomPlaylists.forEach(playlist => { %>
+            <div class="item">
+                <a href="/playlists/<%= playlist.playlistId %>/view">
+                    <img src="<%= playlist.thumbnail %>" alt="" class="rounded img-shadow-hover mt-1 mb-3">
+                </a>
+                <h6><%= playlist.title %></h6>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+</section>
+<% }  %> 
+
+<%- include('../include/private/footer') -%>

@@ -1,0 +1,38 @@
+<%- include('../../include/private/header') -%>
+
+<section class="pt-4 pb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col col-sm-12">
+                <h1><%= page_title %></h1>
+                    <form method="POST" enctype="multipart/form-data">
+                        <%- include('../../include/messages') -%>
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" name="title" id="title" class="form-control<%= typeof title_validation != 'undefined' ? ' is-invalid' : null %>" value="<%= typeof title != 'undefined' ? title : null %>">
+                            <small class="invalid-feedback"><%= typeof title_validation != 'undefined' ? title_validation : null %></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Description</label>
+                            <textarea name="description" id="description" class="form-control<%= typeof description_validation != 'undefined' ? ' is-invalid' : null %>" value="<%= typeof description != 'undefined' ? description : null %>"><%= typeof description != 'undefined' ? description : null %></textarea>
+                            <small class="invalid-feedback"><%= typeof description_validation != 'undefined' ? description_validation : null %></small>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" name="private" id="private" class="form-check-input" <%= typeof private != 'undefined' ? 'checked' : null %>>
+                                <label class="form-check-label" for="private">Private?</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="thumbnail">Thumbnail</label>
+                            <input type="file" name="thumbnail" id="thumbnail" class="form-control-file<%= typeof thumbnail_validation != 'undefined' ? ' is-invalid' : null %>">
+                            <small class="invalid-feedback"><%= typeof thumbnail_validation != 'undefined' ? thumbnail_validation : null %></small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create Playlist</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('../../include/private/footer') -%>

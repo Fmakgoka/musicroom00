@@ -1,0 +1,6 @@
+<%- include('../include/public/header') -%>
+    <div class="container">
+        <h1><%= page_title %></h1>
+        <div class="alert alert-dismissible <%- status === true ? 'alert-success' : 'alert-danger' -%>"> <%- success_message -%> </div>
+    </div>
+    <%- include('../include/public/footer') -%>

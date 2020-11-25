@@ -1,0 +1,11 @@
+<%- include('../../include/private/header') -%>
+
+<section class="pt-4 pb-4">
+    <div class="container">
+        <h1><%= page_title %></h1>
+        <a href="/playlists/<%= playlistId %>/access" class="btn btn-secondary">Cancel</a>
+        <a href="/playlists/<%= playlistId %>/delete/<%= userId %>" class="btn btn-danger">Delete</a>
+    </div>
+</section>
+
+<%- include('../../include/private/footer') -%>

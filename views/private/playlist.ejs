@@ -1,0 +1,28 @@
+<%- include('../include/private/header') -%>
+
+<section class="pt-4 pb-4">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col col-sm-3">
+                <img src="<%= playlist.picture_medium %>" alt="" class="img-thumbnail">
+            </div>
+            <div class="col col-sm-9">
+                <h1><%= playlist.title %></h1>
+                <small>
+                    <div class="fa fa-user"></div> <%= playlist.creator.name %>
+                </small>
+                <p><%= playlist.description %></p>
+                <div id="deezer-player">
+                    <div id="dz-root"></div>
+                    <div id="player" style="width:100%;" align="center"></div>
+                </div>
+            </div>
+        </div>
+        <div id="controlers">
+
+            <%- include('../include/private/tracks', { tracks: tracks }) -%>
+        </div>
+    </div>
+</section>
+
+<%- include('../include/private/footer') -%>

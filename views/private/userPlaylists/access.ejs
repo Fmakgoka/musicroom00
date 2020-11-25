@@ -1,0 +1,30 @@
+<%- include('../../include/private/header') -%>
+
+<section class="profile pt-4 pb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col col-sm-12">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <form method="POST">
+                            <%- include('../../include/messages') -%>
+                            <div class="form-group">
+                                <label for="username-awesomplete">Username</label><br/>
+                                <input type="text" name="username" id="username-awesomplete" class="form-control<%= typeof username_validation != 'undefined' ? ' is-invalid' : null %>" value="<%= typeof username != 'undefined' ? username : null %>">
+                                <small class="invalid-feedback"><%= typeof username_validation != 'undefined' ? username_validation : null %></small>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add User</button>
+                        </form>
+                    </div>
+                </div>
+                <ul class="list-group">
+                    <% users.forEach(users => { %>
+                        <li class="list-group-item"><%= users.username %> <a href="/playlists/<%= playlistId %>/delete/<%= users.userId %>/confirm"><i class="fa fa-trash pull-right text-muted"></i></a></li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('../../include/private/footer') -%>
